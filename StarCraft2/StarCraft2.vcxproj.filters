@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Base CLasses">
+      <UniqueIdentifier>{82bd7e1b-78d3-4ac6-a89a-cf67bf8bdf6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit">
+      <UniqueIdentifier>{412fd492-75fe-4a3b-b966-5e6ee0529486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Management">
+      <UniqueIdentifier>{b35cd1cd-0b9a-4a9c-a2b8-46d7852ef909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources">
+      <UniqueIdentifier>{b55cc004-8880-4d23-8112-c0d09ce30afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Base Classes">
+      <UniqueIdentifier>{2bbc9f1e-cf09-44ee-bdaf-776c223d0400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Management">
+      <UniqueIdentifier>{2501693d-fa09-44da-baff-2c7320099aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resources">
+      <UniqueIdentifier>{2bc01627-e151-4205-9c65-a5c8df41fdb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Unit">
+      <UniqueIdentifier>{cf347209-56a6-492e-bddf-2b2b86a09582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Building">
+      <UniqueIdentifier>{4f2dc834-5a40-4653-904f-da041bb57984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Building">
+      <UniqueIdentifier>{06b7fbea-4f3a-42fd-981d-ad9d6d890cbe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StarCraft2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>Source Files\Base CLasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files\Base CLasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrack.cpp">
+      <Filter>Source Files\Building</Filter>
+    </ClCompile>
+    <ClCompile Include="Incubator.cpp">
+      <Filter>Source Files\Building</Filter>
+    </ClCompile>
+    <ClCompile Include="FactionResourcesManager.cpp">
+      <Filter>Source Files\Management</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources.cpp">
+      <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Soldier.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker.cpp">
+      <Filter>Source Files\Unit</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Building.hpp">
+      <Filter>Header Files\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.hpp">
+      <Filter>Header Files\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrack.hpp">
+      <Filter>Header Files\Building</Filter>
+    </ClInclude>
+    <ClInclude Include="Incubator.hpp">
+      <Filter>Header Files\Building</Filter>
+    </ClInclude>
+    <ClInclude Include="FactionResourcesManager.hpp">
+      <Filter>Header Files\Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.hpp">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Soldier.hpp">
+      <Filter>Header Files\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker.hpp">
+      <Filter>Header Files\Unit</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
