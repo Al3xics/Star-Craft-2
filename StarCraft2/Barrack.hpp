@@ -13,7 +13,7 @@ private:
 
 public:
     Barrack();
-    Soldier CreateSoldier();
+    std::vector<Soldier> CreateSoldiers(int amount, FactionResourcesManager& frm);
     int GetResourceCost() const override;
 };
 

@@ -12,7 +12,7 @@ private:
 
 public:
     Incubator();
-    Worker CreateWorker();
+    std::vector<Worker> CreateWorkers(int amount, FactionResourcesManager& frm);
     int GetResourceCost() const override;
 };
 

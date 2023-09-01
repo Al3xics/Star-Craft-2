@@ -41,7 +41,7 @@ int main()
 
 
     // Game Start
-    while (resources.GetQuantity() > 0 || FRM.GetTotalCollectedResources() <= 0)
+    while (resources.GetQuantity() > 0)
     {
         // Total resources remaining in the game
         std::cout << "Total resources remaining to be collected : " << GameResources::GetQuantity() << std::endl;
@@ -70,24 +70,13 @@ int main()
                 std::cout << std::endl;
 
                 Worker& lastWorker = workers.back();
+                std::vector<Incubator> newIncubators = lastWorker.BuildIncubator(number, FRM);
 
-                for (int i = 0; i < number; ++i)
+                if (!newIncubators.empty())
                 {
-                    Incubator incubator = lastWorker.BuildIncubator();
-                    if (incubator.CanBuild(FRM))
-                    {
-                        FRM.SubtractResources(incubator.GetResourceCost());
-                        incubators.push_back(incubator);
-                    }
-                    else
-                    {
-                        std::cout << "You don't have enough resources. Collect some resources." << std::endl;
-                        number = i;
-                        break;
-                    }
+                    incubators.insert(incubators.end(), newIncubators.begin(), newIncubators.end());
+                    std::cout << newIncubators.size() << " " << action << "(s) created !" << std::endl;
                 }
-
-                std::cout << number << " " << action << "(s) created !" << std::endl;
             }
             else
             {
@@ -103,24 +92,13 @@ int main()
                 std::cout << std::endl;
 
                 Worker& lastWorker = workers.back();
+                std::vector<Barrack> newBarracks = lastWorker.BuildBarracks(number, FRM);
 
-                for (int i = 0; i < number; ++i)
+                if (!newBarracks.empty())
                 {
-                    Barrack barrack = lastWorker.BuildBarrack();
-                    if (barrack.CanBuild(FRM))
-                    {
-                        FRM.SubtractResources(barrack.GetResourceCost());
-                        barracks.push_back(barrack);
-                    }
-                    else
-                    {
-                        std::cout << "You don't have enough resources. Collect some resources." << std::endl;
-                        number = i;
-                        break;
-                    }
+                    barracks.insert(barracks.end(), newBarracks.begin(), newBarracks.end());
+                    std::cout << newBarracks.size() << " " << action << "(s) created !" << std::endl;
                 }
-
-                std::cout << number << " " << action << "(s) created !" << std::endl;
             }
             else
             {
@@ -136,24 +114,13 @@ int main()
                 std::cout << std::endl;
 
                 Incubator& lastIncubator = incubators.back();
+                std::vector<Worker> newWorkers = lastIncubator.CreateWorkers(number, FRM);
 
-                for (int i = 0; i < number; ++i)
+                if (!newWorkers.empty())
                 {
-                    Worker worker = lastIncubator.CreateWorker();
-                    if (worker.CanCreate(FRM))
-                    {
-                        FRM.SubtractResources(worker.GetResourceCost());
-                        workers.push_back(worker);
-                    }
-                    else
-                    {
-                        std::cout << "You don't have enough resources. Collect some resources." << std::endl;
-                        number = i;
-                        break;
-                    }
+                    workers.insert(workers.end(), newWorkers.begin(), newWorkers.end());
+                    std::cout << newWorkers.size() << " " << action << "(s) created !" << std::endl;
                 }
-
-                std::cout << number << " " << action << "(s) created !" << std::endl;
             }
             else
             {
@@ -169,24 +136,13 @@ int main()
                 std::cout << std::endl;
 
                 Barrack& lastBarrack = barracks.back();
+                std::vector<Soldier> newSoldiers = lastBarrack.CreateSoldiers(number, FRM);
 
-                for (int i = 0; i < number; ++i)
+                if (!newSoldiers.empty())
                 {
-                    Soldier soldier = lastBarrack.CreateSoldier();
-                    if (soldier.CanCreate(FRM))
-                    {
-                        FRM.SubtractResources(soldier.GetResourceCost());
-                        soldiers.push_back(soldier);
-                    }
-                    else
-                    {
-                        std::cout << "You don't have enough resources. Collect some resources." << std::endl;
-                        number = i;
-                        break;
-                    }
+                    soldiers.insert(soldiers.end(), newSoldiers.begin(), newSoldiers.end());
+                    std::cout << newSoldiers.size() << " " << action << "(s) created !" << std::endl;
                 }
-
-                std::cout << number << " " << action << "(s) created !" << std::endl;
             }
             else
             {

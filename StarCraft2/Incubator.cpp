@@ -8,9 +8,24 @@ Incubator::Incubator() : Building("Incubator")
 {
 }
 
-Worker Incubator::CreateWorker()
+std::vector<Worker> Incubator::CreateWorkers(int amount, FactionResourcesManager& frm)
 {
-    return Worker();
+    std::vector<Worker> workers;
+    for (int i = 0; i < amount; ++i)
+    {
+        Worker worker = Worker();
+        if (worker.CanCreate(frm))
+        {
+            frm.SubtractResources(worker.GetResourceCost());
+            workers.push_back(worker);
+        }
+        else
+        {
+            std::cout << "You don't have enough resources to create " << amount << " worker(s). Collect some resources." << std::endl;
+            break;
+        }
+    }
+    return workers;
 }
 
 int Incubator::GetResourceCost() const
