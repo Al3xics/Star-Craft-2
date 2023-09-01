@@ -2,7 +2,7 @@
 #include <string>
 #include "Unit.hpp"
 #include "Barrack.hpp"
-#include "Resources.hpp"
+#include "GameResources.hpp"
 #include "FactionResourcesManager.hpp"
 class Incubator;
 

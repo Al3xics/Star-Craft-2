@@ -135,7 +135,7 @@
     <ClCompile Include="Barrack.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Incubator.cpp" />
-    <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="GameResources.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="StarCraft2.cpp" />
     <ClCompile Include="Unit.cpp" />
@@ -146,7 +146,7 @@
     <ClInclude Include="Barrack.hpp" />
     <ClInclude Include="Building.hpp" />
     <ClInclude Include="Incubator.hpp" />
-    <ClInclude Include="Resources.hpp" />
+    <ClInclude Include="GameResources.hpp" />
     <ClInclude Include="Soldier.hpp" />
     <ClInclude Include="Unit.hpp" />
     <ClInclude Include="Worker.hpp" />
