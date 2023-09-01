@@ -5,7 +5,7 @@
 #include "Barrack.hpp"
 #include "Building.hpp"
 #include "Incubator.hpp"
-#include "Resources.hpp"
+#include "GameResources.hpp"
 #include "Soldier.hpp"
 #include "Worker.hpp"
 #include "FactionResourcesManager.hpp"
@@ -34,7 +34,7 @@ int main()
 
 
     // Initialize start of the game
-    Resources resources(100);
+    GameResources resources(100);
     FactionResourcesManager FRM;
     Incubator incubator;
     incubators.push_back(incubator);
@@ -44,7 +44,7 @@ int main()
     while (resources.GetQuantity() > 0 || FRM.GetTotalCollectedResources() <= 0)
     {
         // Total resources remaining in the game
-        std::cout << "Total resources remaining to be collected : " << Resources::GetQuantity() << std::endl;
+        std::cout << "Total resources remaining to be collected : " << GameResources::GetQuantity() << std::endl;
         // Number of resources
         std::cout << "Remaining resources: " << FRM.GetTotalCollectedResources() << std::endl;
         // Number of buildings and unit created

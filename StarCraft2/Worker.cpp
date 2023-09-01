@@ -20,8 +20,8 @@ Barrack Worker::BuildBarrack()
 
 void Worker::CollectResources(FactionResourcesManager& frm)
 {
-    int resources = Resources::GetResourcesCollectedEachTime();
-    Resources::SubtractQuantity(resources);
+    int resources = GameResources::GetResourcesCollectedEachTime();
+    GameResources::SubtractQuantity(resources);
     frm.AddResources(resources);
     collectedResources += resources;
 }
