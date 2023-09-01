@@ -15,8 +15,8 @@ private:
 
 public:
 	Worker();
-	Incubator BuildIncubator();
-	Barrack BuildBarrack();
+	std::vector<Incubator> BuildIncubator(int amount, FactionResourcesManager& frm);
+	std::vector<Barrack> BuildBarracks(int amount, FactionResourcesManager& frm);
 	void CollectResources(FactionResourcesManager& frm);
 	int GetCollectedResources();
 	int GetResourceCost() const override;
