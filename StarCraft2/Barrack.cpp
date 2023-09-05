@@ -3,7 +3,7 @@
 
 const int Barrack::resourceCost{4};
 
-Barrack::Barrack() : Building("Barrack")
+Barrack::Barrack() : Building("Barrack", 15)
 {
 }
 
