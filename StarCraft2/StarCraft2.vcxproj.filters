@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Building">
       <UniqueIdentifier>{06b7fbea-4f3a-42fd-981d-ad9d6d890cbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Monster">
+      <UniqueIdentifier>{63c201f5-4261-4097-b14d-67585ad1e5ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Monster">
+      <UniqueIdentifier>{073bead1-e955-48a6-a482-98d5c8ea286e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StarCraft2.cpp">
@@ -66,6 +72,12 @@
     <ClCompile Include="FactionResourcesManager.cpp">
       <Filter>Source Files\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files\Base CLasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Source Files\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Building.hpp">
@@ -91,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="FactionResourcesManager.hpp">
       <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.hpp">
+      <Filter>Header Files\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.hpp">
+      <Filter>Header Files\Monster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
 
 const int Incubator::resourceCost{5};
 
-Incubator::Incubator() : Building("Incubator")
+Incubator::Incubator() : Building("Incubator", 10)
 {
 }
 
