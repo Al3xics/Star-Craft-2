@@ -7,7 +7,7 @@ int GameResources::resourcesCollectedEachTime = 3;
 GameResources::GameResources(int initialQuantity)
 {
     totalQuantity = initialQuantity;
-    std::cout << "There is a total of " << totalQuantity << " resources you can collect for the entire game.\n" << std::endl;
+    std::cout << "\n\n\tThere is a total of " << totalQuantity << " resources you can collect for the entire game.\n" << std::endl;
 }
 
 int GameResources::GetQuantity()

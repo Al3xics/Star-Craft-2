@@ -1,3 +1,4 @@
+#include <iostream>
 #include <random>
 #include "Boss.hpp"
 
@@ -13,5 +14,9 @@ void Boss::RecoverHealth(int amount)
     if (health > MaximumTotalHealth)
     {
         health = MaximumTotalHealth;
+    }
+    else
+    {
+        std::cout << "The Boss recovered " << amount << " HP." << std::endl;
     }
 }

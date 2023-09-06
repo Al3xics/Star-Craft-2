@@ -17,27 +17,32 @@
 int main()
 {
     // Instructions
-    std::cout << "======================================================================================\n";
+    std::cout << "===================================================================================================================\n";
     std::cout << "\tAction you can do if you have enough resources :\n";
     std::cout << "\t\t'incubator' will create an incubator\n";
     std::cout << "\t\t'barrack' will create a barrack\n";
     std::cout << "\t\t'worker' will create a worker\n";
     std::cout << "\t\t'soldier' will create a soldier\n";
     std::cout << "\t\t'collect' will make one or more worker collect resources\n";
-    std::cout << "\t\t'attack' will make one or more soldier attack the boss\n";
     std::cout << "\t\n";
     std::cout << "\tYou can chose a number of time to repeat your previous action :\n";
     std::cout << "\t\t' ' chose a number\n";
-    std::cout << "======================================================================================\n" << std::endl;
+    std::cout << "\t\n";
+    std::cout << "\tAt the end of each turn, each of the soldiers you have, will do 3 damage to the Boss.\n";
+    std::cout << "\tThe Boss also recovers 10 HP each turn.\n";
+    std::cout << "\tHe will also attack yours soldiers, if there si, if not, your workers, if not, your incubators.\n";
+    std::cout << "\t\n";
+    std::cout << "\tYour goal is to take down the boss ! Good luck !\n";
+    std::cout << "===================================================================================================================\n" << std::endl;
 
-
+    
 
     // Initialize start of the game
     std::vector<Incubator> incubators;
     std::vector<Barrack> barracks;
     std::vector<Worker> workers;
     std::vector<Soldier> soldiers;
-    GameResources resources(1000);
+    GameResources resources(30);
     FactionResourcesManager FRM;
     Incubator incubator;
     incubators.push_back(incubator);
@@ -53,7 +58,7 @@ int main()
     // Game Start
     while (boss.GetHealth() > 0)
     {
-        std::cout << "\n\n\n======================================================================================" << std::endl;
+        std::cout << "\n\n\n===================================================================================================================" << std::endl;
         // Total resources remaining in the game
         std::cout << "Total resources remaining to be collected : " << GameResources::GetQuantity() << std::endl;
         // Number of resources
@@ -65,14 +70,14 @@ int main()
         std::cout << "\n\tIncubator : " << incubators.size();
         std::cout << "\n\tBarrack : " << barracks.size();
         std::cout << "\n\tWorker : " << workers.size();
-        std::cout << "\n\tSoldier : " << soldiers.size() << "\n\n\n";
+        std::cout << "\n\tSoldier : " << soldiers.size() << "\n\n" << std::endl;
 
 
 
         if (incubators.empty())
         {
             std::cout << "You have lost.\nAll your soldiers, workers and incubators were killed/destroyed.\nTry again !" << std::endl;
-            std::cout << "======================================================================================" << std::endl;
+            std::cout << "===================================================================================================================" << std::endl;
             break;
         }
 
@@ -278,27 +283,10 @@ int main()
                 std::cout << "No workers available. Please create a worker." << std::endl;
             }
         }
-        else if (action == "attack")
-        {
-            // rajouter quelque chose pour que les soldat fasse des dégats (dans leur classe aussi)
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // ...
-            // écrire un message qui dit combien de dégats à été fait au boss (comme dans la méthode 'DoDamage()' de la classe 'Monster', et aussi créer la vairable 'damage', dans la classe 'Unit')
-            // créer les méthodes manquante (voir ce que je pourrai avoir besoin par rapport aux classes 'Monster', 'Boss', 'Building' et 'Unit')
-        }
         else
         {
             std::cout << "Invalid action. Try again." << std::endl;
-            std::cout << "======================================================================================" << std::endl;
+            std::cout << "===================================================================================================================" << std::endl;
             continue;
         }
 
@@ -306,21 +294,46 @@ int main()
 
         if (!soldiers.empty())
         {
-            boss.DoDamage(soldiers);
+            int soldierCount = static_cast<int>(soldiers.size());
+            int damageDoneToTheBoss{0};
+            for (int i = 0; i < soldierCount; ++i)
+            {
+                if (boss.IsAlive())
+                {
+                    soldiers[i].Attack(boss);
+                    damageDoneToTheBoss += soldiers[i].GetDamage();
+                }
+                else
+                {
+                    break;
+                }
+            }
+            std::cout << damageDoneToTheBoss << " damage was done to the Boss." << std::endl;
         }
-        else if (!workers.empty())
+
+
+
+        if (boss.IsAlive())
         {
-            boss.DoDamage(workers);
-        }
-        else if (!incubators.empty())
-        {
-            boss.DoDamage(incubators);
+            if (!soldiers.empty())
+            {
+                boss.Attack(soldiers);
+            }
+            else if (!workers.empty())
+            {
+                boss.Attack(workers);
+            }
+            else if (!incubators.empty())
+            {
+                boss.Attack(incubators);
+            }
+
+            boss.RecoverHealth(10);
         }
 
         
 
-        boss.RecoverHealth(2);
-        std::cout << "\n\n======================================================================================" << std::endl;
+        std::cout << "===================================================================================================================\n\n" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     }
