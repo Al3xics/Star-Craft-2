@@ -2,8 +2,8 @@
 #include <string>
 #include "Unit.hpp"
 #include "Barrack.hpp"
-#include "GameResources.hpp"
 #include "FactionResourcesManager.hpp"
+#include "GameResources.hpp"
 class Incubator;
 
 class Worker : public Unit

@@ -17,10 +17,10 @@ protected:
 public:
     Monster(std::string name, int health, int damage);
     int GetHealth();
-    int GetDamage();
     bool IsAlive();
-    void DoDamage(std::vector<Soldier>& soldiers);
-    void DoDamage(std::vector<Worker>& workers);
-    void DoDamage(std::vector<Incubator>& incubators);
+    void TakeDamage(int damageTaken);
+    void Attack(std::vector<Soldier>& soldiers);
+    void Attack(std::vector<Worker>& workers);
+    void Attack(std::vector<Incubator>& incubators);
 };
 

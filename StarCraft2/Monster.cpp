@@ -11,17 +11,21 @@ int Monster::GetHealth()
     return health;
 }
 
-int Monster::GetDamage()
-{
-    return damage;
-}
-
 bool Monster::IsAlive()
 {
     return isAlive;
 }
 
-void Monster::DoDamage(std::vector<Soldier>& soldiers)
+void Monster::TakeDamage(int damageTaken)
+{
+    health -= damageTaken;
+    if (health <= 0)
+    {
+        isAlive = false;
+    }
+}
+
+void Monster::Attack(std::vector<Soldier>& soldiers)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -43,7 +47,7 @@ void Monster::DoDamage(std::vector<Soldier>& soldiers)
     }
 }
 
-void Monster::DoDamage(std::vector<Worker>& workers)
+void Monster::Attack(std::vector<Worker>& workers)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -65,7 +69,7 @@ void Monster::DoDamage(std::vector<Worker>& workers)
     }
 }
 
-void Monster::DoDamage(std::vector<Incubator>& incubators)
+void Monster::Attack(std::vector<Incubator>& incubators)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
